@@ -1,1 +1,7 @@
-rootProject.name = "whackyquacky"
+rootProject.name = "wackyquacky"
+
+include(
+    "core",
+    "api",
+    "worker",
+)
