@@ -8,14 +8,14 @@ Advance you lose most after 5.Be2, where you play ...Nc6 instead of ...c5"*.
 ## Architecture
 
 ```
-            ┌──────────┐   POST /analyses    ┌──────────┐
+             ┌──────────┐   POST /analyses     ┌──────────┐
   client ──▶│   api    │── writes job row ──▶│          │
-            │ (Spring) │◀── reads results ───│ Postgres │
-            └──────────┘                     │          │
-                                             │          │
-            ┌──────────┐── polls jobs ──────▶│          │
-            │  worker  │── writes results ──▶│          │
-            │ (Spring) │                     └──────────┘
+             │ (Spring) │◀── reads results ───│ Postgres │
+             └──────────┘                      │          │
+                                               │          │
+            ┌──────────┐ ── polls jobs ──────▶│          │
+            │  worker  │ ── writes results ──▶│          │
+            │ (Spring) │                       └──────────┘
             └────┬─────┘
                  ├──▶ chess.com public API (games)
                  └──▶ Stockfish (child process, UCI)
